@@ -1,7 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+:root{
+  --color-fondo: #26547C;
+}
 
 *{
-  font-family: 'Raleway', sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Quicksand', sans-serif;
+  background: var(--color-fondo);
+  transition: .3s;
 }
 
 .contenedor{
@@ -9,38 +21,91 @@
   transform: translate(-50%, -50%);
   left: 50%;
   top: 50%;
-  width: 400px;
+  width: 340px;
+  border-radius: 25px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  background: #FFD166;
+  padding: 10px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.top{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+/* .top > button{
+} */
+
+.top > i{
+  text-align: center;
+  font-size: .1em;
+}
+
+.textoPregunta{
+  font-size: 3em;
+  margin: 50px 0px;
 }
 
 .mathCard {
-  background: #337CA0;
-  color: #fff;
-  border-radius: 0.25rem;
-  padding: 2rem;
   text-align: center;
 }
 
 .respuestaCorrecta {
-  color: #ffffff;
-  font-size: 1.5rem
+  color: #000;
+  margin: 20px 0px;
 }
 
-input, button{
-  border: none;
-  outline: none;
-}
-
-input{
+.form-control{
   padding: 10px;
+  border-radius: 25px;
+  text-align: center;
+  width: 85.4%;
 }
 
-button{
-  padding: 10px;
+.respuesta{
+  margin: 50px 0px;
+  font-size: 3em;
+}
+
+.result{
+  font-size: 1.5em;
+  margin: 50px 0px;
+}
+
+/* Selecciona todos los botones */
+
+.boton__enviar, .boton__sync, .boton__ayuda{
+  border-radius: 25px;
+  background: #FBF5F3;
   cursor: pointer;
   transition: .3s;
 }
 
-button:hover{
-  background: #E13700;
-  color: #fff;
+/* Añade el color de fondo individualmente a cada botón */
+
+.boton__sync{
+  background: #ff809d;
+}
+
+.boton__ayuda{
+  background: #06D6A0;
+}
+
+.boton__enviar{
+  padding: 10px;
+  width: auto;
+  background: #ff809d;
 }

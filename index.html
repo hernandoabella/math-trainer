@@ -10,18 +10,22 @@
 
 <body onload="creadorAleatorio()">
     <div class="contenedor">
+      <div class="top">
+          <button onclick="creadorAleatorio()" class="boton__sync"><i class="fas fa-sync-alt"></i></button>
+          <button onclick="respuestaAyuda()" class="boton__ayuda"><i class="far fa-question-circle"></i></button>
+      </div>
+      
       <div class="mathCard">
         <div class="mathQuestion">
-          <h1 class="questionText"></h1>
+          <h1 class="textoPregunta"></h1>
         </div>
+        <div class="respuesta">&lt;?&gt;</div>
+        <div class="result"></div>
         <form id="formularioMatematico">
           <div class="form-group">
-            <input type="text" class="form-control" id="respuestaEntrada" placeholder="Escribe tu respuesta aquí">
-            <button type="submit">Enviar</button>
-            <button  onclick="creadorAleatorio()"><i class="fas fa-sync-alt"></i></button>
-            <button  onclick="respuestaAyuda()"><i class="far fa-question-circle"></i></button>
+            <input type="text" class="form-control" id="respuestaEntrada" placeholder="Escribe tu respuesta aquí" autocomplete="off">
+            <button type="submit" class="boton__enviar"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
           </div>
-          
         </form>
       </div>
     </div>
