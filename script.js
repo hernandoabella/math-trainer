@@ -17,10 +17,13 @@ const hacerMatematicas = (a, b, c) => {
 const enviarRespuesta = (resultado) =>{
   document.querySelector("#formularioMatematico").addEventListener("submit", function(e) {
     e.preventDefault();
+    actualizarNumero();
     let respuestaUsuario = document.querySelector("#respuestaEntrada").value;
     let booleano = (resultado == respuestaUsuario) ? true : false;
     if (booleano === true) {
-      // Cambia el contenido....
+      // Establece el color de .result a #3EC300
+      document.querySelector(".result").style.background = "#3EC300";
+      // Establece el texto de .result a ¡correcto! si es verdadero....
       document.querySelector(".result").innerHTML = ("<p>¡Correcto!</p>");
       // Establece el color de fondo en verde en caso de que aciertes
       document.body.style.backgroundColor = "#3EC300";
@@ -32,13 +35,14 @@ const enviarRespuesta = (resultado) =>{
       // Realiza una nueva pregunta
       creadorAleatorio();
     } else {
-      // Cambia el contenido....
-      document.querySelector(".result").innerHTML += ("<p>¡Incorrecto!</p>");
+      document.querySelector(".result").style.color = "#FF1D15";
+      // Cambia el contenido HTML
+      document.querySelector(".result").innerHTML = ("<p>¡Incorrecto!</p>");
       // Establece el color de fondo en rojo en caso de que falles en la respuesta
       document.body.style.backgroundColor = "#FF1D15";
       //
       setTimeout(function() {
-        document.querySelector(".mathQuestion").innerHTML += "";
+        document.querySelector(".result").innerHTML += "";
       }, 1000);
       // Luego de 1 segundo establece el fondo al color principal 
       setTimeout(function() {
@@ -81,6 +85,18 @@ const respuestaAyuda = () => {
   // Asegúrate de que la respuesta no se muestre todavía
   if (!document.querySelector(".respuestaCorrecta")) {
     // Muestra la respuesta
-    document.querySelector(".result").innerHTML += ("<p class='respuestaCorrecta'>La respuesta correcta es: " + "<br><br><b>" + resultadoTemporal + "</b>" + "</p>");
+    document.querySelector(".result").innerHTML = ("<p class=''>La respuesta correcta es: " + "<br><br><b>" + resultadoTemporal + "</b>" + "</p>");
   }
+}
+
+document.addEventListener('keydown', (event) => {
+  actualizarNumero();
+});
+
+const actualizarNumero = () => {
+  let respuestaEntradaUsuario = document.querySelector("#respuestaEntrada").value;
+  let respuesta = document.querySelector('.respuesta');
+  let keyName = event.key;
+  respuesta.innerHTML = respuestaEntradaUsuario;
+  console.log('keydown event\n\n' + 'key: ' + keyName); 
 }
