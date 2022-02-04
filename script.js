@@ -24,7 +24,9 @@ const enviarRespuesta = (resultado) =>{
       // Establece el color de .result a #3EC300
       document.querySelector(".result").style.background = "#3EC300";
       // Establece el texto de .result a ¡correcto! si es verdadero....
-      document.querySelector(".result").innerHTML = ("<p>¡Correcto!</p>");
+      setTimeout(function() {
+        document.querySelector(".result").innerHTML = ("<p>¡Correcto!</p>");
+      }, 1000);
       // Establece el color de fondo en verde en caso de que aciertes
       document.body.style.backgroundColor = "#3EC300";
       setTimeout(function() {
@@ -85,18 +87,20 @@ const respuestaAyuda = () => {
   // Asegúrate de que la respuesta no se muestre todavía
   if (!document.querySelector(".respuestaCorrecta")) {
     // Muestra la respuesta
-    document.querySelector(".result").innerHTML = ("<p class=''>La respuesta correcta es: " + "<br><br><b>" + resultadoTemporal + "</b>" + "</p>");
+    document.querySelector(".result").innerHTML = ("<p class='rpta'>La respuesta correcta es: " + "<br><br><b>" + resultadoTemporal + "</b>" + "</p>");
   }
 }
 
-document.addEventListener('keydown', (event) => {
+document.addEventListener('keyup', () => {
   actualizarNumero();
 });
 
 const actualizarNumero = () => {
-  let respuestaEntradaUsuario = document.querySelector("#respuestaEntrada").value;
+  let respuestaEntradaUsuario = document.querySelector(".form-control").value;
   let respuesta = document.querySelector('.respuesta');
-  let keyName = event.key;
+  
   respuesta.innerHTML = respuestaEntradaUsuario;
-  console.log('keydown event\n\n' + 'key: ' + keyName); 
+
+  console.log(respuesta.innerHTML);
+  
 }
